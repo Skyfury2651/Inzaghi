@@ -185,10 +185,16 @@ const relatedPosts = [
 
 <style scoped>
 .blog-content :deep(h2) {
-  @apply text-2xl font-bold text-gray-900 mt-8 mb-4;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .blog-content :deep(p) {
-  @apply text-gray-700 leading-relaxed mb-4;
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 1rem;
 }
 </style>

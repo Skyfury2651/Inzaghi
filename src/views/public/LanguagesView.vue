@@ -12,7 +12,7 @@ const groupedLanguages = computed(() => {
   const groups: Record<string, typeof languages> = {}
 
   languages.forEach(lang => {
-    const firstLetter = lang.nameVi[0].toUpperCase()
+    const firstLetter = (lang.nameVi?.[0] || '#').toUpperCase()
     if (!groups[firstLetter]) {
       groups[firstLetter] = []
     }

@@ -3,6 +3,10 @@ import { useRoute } from 'vue-router'
 import { computed } from 'vue'
 import AppBreadcrumb from '@/components/common/AppBreadcrumb.vue'
 import AppButton from '@/components/common/AppButton.vue'
+import TrustedPartners from '@/components/home/TrustedPartners.vue'
+import StatisticsCounter from '@/components/home/StatisticsCounter.vue'
+import TeamShowcase from '@/components/home/TeamShowcase.vue'
+import Testimonials from '@/components/home/Testimonials.vue'
 import { useSettingsStore } from '@/stores'
 
 const route = useRoute()
@@ -49,7 +53,7 @@ const pricing = [
 <template>
   <div>
     <!-- Page Header -->
-    <section class="bg-gradient-to-br from-primary via-primary-dark to-secondary text-white py-16">
+    <section class="bg-gradient-to-br from-primary via-primary-dark to-secondary text-white py-16 md:py-20">
       <div class="container">
         <AppBreadcrumb
           :items="[
@@ -58,17 +62,20 @@ const pricing = [
           ]"
           class="mb-6 text-white/70"
         />
-        <div class="flex items-center gap-4">
-          <div class="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center text-4xl">
+        <div class="flex items-center gap-4 md:gap-6">
+          <div class="w-20 h-20 md:w-24 md:h-24 bg-white/20 rounded-2xl flex items-center justify-center text-4xl md:text-5xl">
             {{ language.flag || language.code.toUpperCase() }}
           </div>
           <div>
             <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold">Dịch thuật {{ language.nameVi }}</h1>
-            <p class="text-lg text-white/80 mt-2">{{ language.name }}</p>
+            <p class="text-lg md:text-xl text-white/80 mt-2">{{ language.name }}</p>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- Trusted Partners -->
+    <TrustedPartners />
 
     <!-- Services -->
     <section class="section">
@@ -219,14 +226,61 @@ const pricing = [
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="py-16 bg-primary text-white">
-      <div class="container text-center">
-        <h2 class="text-3xl font-bold mb-4">Nhận báo giá dịch thuật {{ language.nameVi }}</h2>
-        <p class="text-white/80 mb-8">Gửi tài liệu để nhận báo giá chi tiết và miễn phí</p>
-        <AppButton variant="white" size="lg" to="/lien-he">
-          Nhận báo giá ngay
-        </AppButton>
+    <!-- Statistics -->
+    <StatisticsCounter />
+
+    <!-- Team Showcase -->
+    <TeamShowcase />
+
+    <!-- Testimonials -->
+    <Testimonials />
+
+    <!-- CTA with Quote Form -->
+    <section class="py-16 md:py-20 bg-gradient-to-br from-primary via-primary-dark to-secondary text-white">
+      <div class="container">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="text-3xl md:text-4xl font-bold mb-4">Nhận báo giá dịch thuật {{ language.nameVi }}</h2>
+          <p class="text-white/80 mb-8">Gửi tài liệu để nhận báo giá chi tiết và miễn phí</p>
+          <AppButton variant="white" size="lg" to="/lien-he" class="shadow-lg">
+            Nhận báo giá ngay
+          </AppButton>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Info -->
+    <section class="section bg-gray-50">
+      <div class="container">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Hotline Hà Nội</h3>
+            <a href="tel:0964333933" class="text-primary font-bold text-lg hover:text-primary-dark">0964.333.933</a>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Email</h3>
+            <a href="mailto:contact@dichthuatphuongdong.com" class="text-primary font-bold text-lg hover:text-primary-dark">contact@dichthuatphuongdong.com</a>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">VPGD Hà Nội</h3>
+            <p class="text-gray-600">149 Phố Khương Trung, Khương Đình, Thanh Xuân</p>
+          </div>
+        </div>
       </div>
     </section>
   </div>
